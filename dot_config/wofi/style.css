@@ -1,0 +1,30 @@
+window {
+    border: 2px solid --wofi-color1;
+    border-radius: 5px;
+    background-color: --wofi-color0;
+}
+
+#input {
+    font-size: 18px;
+    margin: 10px;
+    padding: 5px;
+    background-color: --wofi-color2;
+    border: 2px solid --wofi-color3;
+    border-radius: 5px;
+}
+
+#inner-box,
+#outer-box {
+    font-size: 18px;
+    margin: 10px;
+    padding: 5px;
+}
+
+#entry {
+    padding: 10px;
+}
+
+#entry:selected {
+    border-radius: 5px;
+    background-color: --wofi-color4;
+}
