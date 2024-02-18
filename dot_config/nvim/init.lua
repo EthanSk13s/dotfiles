@@ -17,8 +17,9 @@ vim.opt.rtp:prepend(lazypath)
 -- Plugins
 local plugins = {'neovim/nvim-lspconfig',
                  {'ms-jpq/coq_nvim', branch = 'coq'},
-    	         'nvim-tree/nvim-web-devicons',
-    	         'folke/trouble.nvim',
+                 {'ms-jpq/coq.artifacts', branch = 'artifacts'},
+                 'nvim-tree/nvim-web-devicons',
+                 'folke/trouble.nvim',
                  "williamboman/mason.nvim",
                  'nvim-tree/nvim-tree.lua',
                  'nvim-tree/nvim-web-devicons',
@@ -57,8 +58,10 @@ require("indent_blankline").setup {
     show_end_of_line = true,
 }
 
+local coq = require("coq")
+
 -- LSP configs
-require'lspconfig'.clangd.setup{}
+require'lspconfig'.clangd.setup{coq.lsp_ensure_capabilities()}
 require'lspconfig'.lua_ls.setup{}
 require'lspconfig'.pyright.setup{}
 
@@ -70,3 +73,4 @@ vim.cmd("set autoindent expandtab tabstop=4 shiftwidth=4")
 vim.cmd("set relativenumber")
 vim.cmd("set number")
 vim.cmd("colorscheme pywal")
+vim.cmd("COQnow --shut-up")
